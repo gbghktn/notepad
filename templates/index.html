@@ -2,27 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>메모장</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask 메모장</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>메모장</h1>
-    <form action="/add" method="post">
-        <textarea name="content" rows="5" cols="30" placeholder="메모를 입력하세요"></textarea>
-        <br>
-        <button type="submit">저장</button>
-    </form>
-    <ul>
-        {% for memo in memos %}
-        <li>
-            {{ memo }}
-            <!-- 삭제 버튼 -->
-            <form action="/delete/{{ loop.index0 }}" method="post" style="display:inline;">
-                <button type="submit">삭제</button>
+    <div class="container">
+        <header>
+            <h1>📝 Flask 메모장</h1>
+        </header>
+        <main>
+            <form action="/add" method="post" class="add-form">
+                <textarea name="content" rows="3" placeholder="새 메모를 입력하세요..." required></textarea>
+                <button type="submit" class="add-button">➕ 추가</button>
             </form>
-            <!-- 수정 버튼 -->
-            <a href="/edit/{{ loop.index0 }}"><button type="button">수정</button></a>
-        </li>
-        {% endfor %}
-    </ul>
+            <ul class="memo-list">
+                {% for memo in memos %}
+                <li class="memo-item">
+                    <p>{{ memo }}</p>
+                    <div class="actions">
+                        <form action="/delete/{{ loop.index0 }}" method="post">
+                            <button type="submit" class="delete-button">🗑️ 삭제</button>
+                        </form>
+                        <a href="/edit/{{ loop.index0 }}" class="edit-button">✏️ 수정</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </main>
+    </div>
 </body>
 </html>

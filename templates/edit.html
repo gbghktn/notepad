@@ -2,15 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메모 수정</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>메모 수정</h1>
-    <form action="/edit/{{ memo_index }}" method="post">
-        <textarea name="content" rows="5" cols="30">{{ memo }}</textarea>
-        <br>
-        <button type="submit">저장</button>
-        <a href="/">취소</a>
-    </form>
+    <div class="container">
+        <header>
+            <h1>✏️ 메모 수정</h1>
+        </header>
+        <main>
+            <form action="/edit/{{ memo_index }}" method="post" class="edit-form">
+                <textarea name="content" rows="5" placeholder="메모 내용을 수정하세요..." required>{{ memo }}</textarea>
+                <div class="edit-actions">
+                    <button type="submit" class="save-button">💾 저장</button>
+                    <a href="/" class="cancel-button">❌ 취소</a>
+                </div>
+            </form>
+        </main>
+    </div>
 </body>
 </html>
