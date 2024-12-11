@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>메모 수정</title>
+</head>
+<body>
+    <h1>메모 수정</h1>
+    <form action="/edit/{{ memo_index }}" method="post">
+        <textarea name="content" rows="5" cols="30">{{ memo }}</textarea>
+        <br>
+        <button type="submit">저장</button>
+        <a href="/">취소</a>
+    </form>
+</body>
+</html>
