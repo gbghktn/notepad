@@ -13,7 +13,7 @@
         </header>
         <main>
             <form action="/edit/{{ memo_index }}" method="post" class="edit-form">
-                <textarea name="content" rows="5" placeholder="메모 내용을 수정하세요..." required>{{ memo }}</textarea>
+                <textarea name="content" rows="5" placeholder="메모 내용을 수정하세요" required>{{ memo }}</textarea>
                 <div class="edit-actions">
                     <button type="submit" class="save-button">💾 저장</button>
                     <a href="/" class="cancel-button">❌ 취소</a>
@@ -40,7 +40,7 @@
         </header>
         <main>
             <form action="/edit/{{ memo_index }}" method="post" enctype="multipart/form-data" class="edit-form">
-                <textarea name="content" rows="5" placeholder="메모 내용을 수정하세요..." required>{{ memo.content }}</textarea><br>
+                <textarea name="content" rows="5" placeholder="메모 내용을 수정하세요" required>{{ memo.content }}</textarea><br>
                 <input type="file" name="image" accept="image/*"><br>
                 {% if memo.image %}
                     <img src="{{ url_for('static', filename='uploads/' + memo.image) }}" alt="Memo Image" width="200"><br>

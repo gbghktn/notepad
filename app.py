@@ -44,8 +44,6 @@
 
 
 
-
-
 from flask import Flask, render_template, request, redirect, url_for
 import os
 from werkzeug.utils import secure_filename
@@ -63,7 +61,7 @@ memos = []
 
 # 이미지 확장자 확인 함수
 def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS # 올바른 확장자면 1 출력
 
 @app.route('/')
 def index():
