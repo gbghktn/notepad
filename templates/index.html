@@ -33,3 +33,45 @@
     </div>
 </body>
 </html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모장</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 메모장</h1>
+        </header>
+        <main>
+            <form action="/add" method="post" enctype="multipart/form-data" class="add-form">
+                <textarea name="content" rows="3" placeholder="새 메모를 입력하세요"></textarea><br>
+                <input type="file" name="image" accept="image/*"><br>
+                <button type="submit" class="add-button">➕ 추가</button>
+            </form>
+
+            <ul class="memo-list">
+                {% for memo in memos %}
+                <li class="memo-item">
+                    <p>{{ memo.content }}</p>
+                    {% if memo.image %}
+                        <img src="{{ url_for('static', filename='uploads/' + memo.image) }}" alt="Memo Image" width="200">
+                    {% endif %}
+                    <div class="actions">
+                        <form action="/delete/{{ loop.index0 }}" method="post">
+                            <button type="submit" class="delete-button">🗑️ 삭제</button>
+                        </form>
+                        <a href="/edit/{{ loop.index0 }}" class="edit-button">✏️ 수정</a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </main>
+    </div>
+</body>
+</html> -->

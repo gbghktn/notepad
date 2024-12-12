@@ -23,3 +23,34 @@
     </div>
 </body>
 </html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메모 수정</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>✏️ 메모 수정</h1>
+        </header>
+        <main>
+            <form action="/edit/{{ memo_index }}" method="post" enctype="multipart/form-data" class="edit-form">
+                <textarea name="content" rows="5" placeholder="메모 내용을 수정하세요..." required>{{ memo.content }}</textarea><br>
+                <input type="file" name="image" accept="image/*"><br>
+                {% if memo.image %}
+                    <img src="{{ url_for('static', filename='uploads/' + memo.image) }}" alt="Memo Image" width="200"><br>
+                {% endif %}
+                <div class="edit-actions">
+                    <button type="submit" class="save-button">💾 저장</button>
+                    <a href="/" class="cancel-button">❌ 취소</a>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html> -->
